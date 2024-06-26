@@ -9,7 +9,7 @@ return {
         code_action = '',
       },
       symbol_in_winbar = {
-		enable = false,
+        enable = false,
         folder_level = 5,
       },
       outline = {
@@ -21,11 +21,6 @@ return {
           toggle_or_open = '<cr>',
         },
       },
-      -- rename = {
-      --   keys = {
-      --     quit = "<esc>",
-      --   },
-      -- },
       floaterm = {
         height = 0.9,
         width = 0.9,
@@ -40,11 +35,11 @@ return {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
       callback = function(ev)
         -- Enable completion triggered by <c-x><c-o>
+        --
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         local opts = { buffer = ev.buf }
         vim.keymap.set('n', 'gd', '<cmd>Lspsaga goto_definition<cr>', opts)
-        vim.keymap.set('n', '<space>r', '<cmd>Lspsaga rename<cr>', opts)
         vim.keymap.set('n', 'gh', '<cmd>Lspsaga hover_doc<CR>', opts)
         vim.keymap.set('n', 'gr', '<cmd>Lspsaga finder<CR>', opts)
       end,

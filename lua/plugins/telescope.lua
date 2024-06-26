@@ -41,10 +41,10 @@ return {
         buffer_previewer_maker = new_maker, -- don't preview binary file
         mappings = {
           i = {
-            ['<C-j>'] = actions.move_selection_next,
-            ['<C-k>'] = actions.move_selection_previous,
-            ['<C-p>'] = actions.cycle_history_prev,
-            ['<C-n>'] = actions.cycle_history_next,
+            ['<C-n>'] = actions.move_selection_next,
+            ['<C-p>'] = actions.move_selection_previous,
+            ['<C-k>'] = actions.cycle_history_prev,
+            ['<C-j>'] = actions.cycle_history_next,
             ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
@@ -134,9 +134,9 @@ return {
         require('telescope.builtin').find_files()
       end,
     },
-	{
-	  "<leader>,",
-	  "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
-	}
+    {
+      '<leader>,',
+      '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>',
+    },
   },
 }

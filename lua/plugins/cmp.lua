@@ -8,7 +8,6 @@ return {
     'saadparwaiz1/cmp_luasnip', -- for autocompletion
     'onsails/lspkind.nvim', -- vs-code like pictograms
     'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-cmdline',
   },
 
   config = function()
