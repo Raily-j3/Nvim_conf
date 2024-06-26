@@ -134,5 +134,9 @@ return {
         require('telescope.builtin').find_files()
       end,
     },
+	{
+	  "<leader>,",
+	  "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+	}
   },
 }

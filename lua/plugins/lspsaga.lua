@@ -9,6 +9,7 @@ return {
         code_action = '',
       },
       symbol_in_winbar = {
+		enable = false,
         folder_level = 5,
       },
       outline = {

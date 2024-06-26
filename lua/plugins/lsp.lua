@@ -37,26 +37,26 @@ return {
           },
         },
 
-        jsonls = {
-          settings = {
-            json = {
-              schemas = require('schemastore').json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        },
-
-        yamlls = {
-          settings = {
-            yaml = {
-              schemaStore = {
-                enable = false,
-                url = '',
-              },
-              schemas = require('schemastore').yaml.schemas(),
-            },
-          },
-        },
+        -- jsonls = {
+        --   settings = {
+        --     json = {
+        --       schemas = require('schemastore').json.schemas(),
+        --       validate = { enable = true },
+        --     },
+        --   },
+        -- },
+        --
+        -- yamlls = {
+        --   settings = {
+        --     yaml = {
+        --       schemaStore = {
+        --         enable = false,
+        --         url = '',
+        --       },
+        --       schemas = require('schemastore').yaml.schemas(),
+        --     },
+        --   },
+        -- },
 
         clangd = {
           keys = {
