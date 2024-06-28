@@ -37,6 +37,7 @@ return {
           },
         },
 
+        pyright = {},
         -- jsonls = {
         --   settings = {
         --     json = {
