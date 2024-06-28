@@ -53,7 +53,7 @@ return {
         find_files = {
           theme = 'dropdown',
           layout_config = {
-            center = { width = 0.5, height = 0.5 },
+            center = { width = 0.5, height = 0.3 },
           },
           previewer = false,
           -- find_command = { "fd", "-H" , "-I"},  -- "-H" search hidden files, "-I" do not respect to gitignore
@@ -63,7 +63,7 @@ return {
         git_files = {
           theme = 'dropdown',
           layout_config = {
-            center = { width = 0.5, height = 0.5 },
+            center = { width = 0.5, height = 0.3 },
           },
           previewer = false,
           find_command = { 'fd', '-H', '-I' }, -- "-H" search hidden files, "-I" do not respect to gitignore
@@ -72,7 +72,7 @@ return {
         oldfiles = {
           theme = 'dropdown',
           layout_config = {
-            center = { width = 0.5, height = 0.5 },
+            center = { width = 0.5, height = 0.3 },
           },
           previewer = false,
           find_command = { 'fd', '-H', '-I' }, -- "-H" search hidden files, "-I" do not respect to gitignore
