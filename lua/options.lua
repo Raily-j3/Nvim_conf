@@ -10,13 +10,13 @@ opt.smartcase = true
 -- Decrease update time
 vim.opt.updatetime = 250
 -- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+opt.splitright = true
+opt.splitbelow = true
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
+opt.timeoutlen = 300
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+-- opt.inccommand = 'split'
 
 opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
 opt.showmode = false
@@ -34,4 +34,9 @@ opt.fillchars = {
   foldsep = ' ',
   diff = '╱',
   eob = ' ',
+}
+
+vim.diagnostic.config {
+  virtual_text = true,
+  signs = false, -- priority = 5
 }
