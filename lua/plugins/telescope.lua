@@ -125,7 +125,9 @@ return {
     {
       '<leader><space>',
       function()
-        require('telescope.builtin').git_files()
+        require('telescope.builtin').git_files{
+					cwd = vim.fn.expand('%:p:h'):gsub("^oil://", ""),
+				}
       end,
     },
     {
