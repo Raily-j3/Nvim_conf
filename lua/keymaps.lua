@@ -38,6 +38,7 @@ map('t', '<C-h>', '')
 map('t', '<C-l>', 'clear<cr>')
 map({ 'n', 'x' }, '<leader>p', '"0p')
 map({ 'n', 't' }, '<A-d>', '<cmd>Lspsaga term_toggle<cr>')
+map('t', '<esc><esc>', '<cmd>Lspsaga term_toggle<cr>')
 map(
   { 'i', 'n' },
   '<esc>',
@@ -53,7 +54,7 @@ local diagnostic_goto = function(next, severity)
     go { severity = severity }
   end
 end
-map('n', '<leader>q', vim.diagnostic.setloclist)
+map('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Diagnostics fix' })
 map('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
 map('n', ']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
 map('n', '[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })
