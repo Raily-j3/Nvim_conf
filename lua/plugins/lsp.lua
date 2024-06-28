@@ -62,7 +62,7 @@ return {
         clangd = {
           keys = {
             {
-              '<C-p>',
+              '<C-h>',
               '<cmd>ClangdSwitchSourceHeader<cr>',
               desc = 'Switch Source/Header (C/C++)',
             },
