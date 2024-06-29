@@ -60,13 +60,6 @@ return {
         -- },
 
         clangd = {
-          keys = {
-            {
-              '<C-h>',
-              '<cmd>ClangdSwitchSourceHeader<cr>',
-              desc = 'Switch Source/Header (C/C++)',
-            },
-          },
           root_dir = function(...)
             -- using a root .clang-format or .clang-tidy file messes up projects, so remove them
             return require('lspconfig.util').root_pattern(
@@ -93,7 +86,7 @@ return {
             completeUnimported = true,
             clangdFileStatus = true,
           },
-          -- filetypes = { "c" },
+          filetypes = { 'c', 'cpp' },
         },
       }
 
