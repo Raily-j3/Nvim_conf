@@ -78,25 +78,6 @@ return { -- Autocompletion
         --  completions whenever it has completion options available.
         ['<C-Space>'] = cmp.mapping.complete {},
 
-        -- Think of <c-l> as moving to the right of your snippet expansion.
-        --  So if you have a snippet that's like:
-        --  function $name($args)
-        --    $body
-        --  end
-        --
-        -- <c-l> will move you to the right of each of the expansion locations.
-        -- <c-h> is similar, except moving you backwards.
-        ['<Tab>'] = cmp.mapping(function()
-          if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          end
-        end, { 's' }),
-        ['<S-Tab>'] = cmp.mapping(function()
-          if luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          end
-        end, { 'i', 's' }),
-
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
@@ -107,4 +88,31 @@ return { -- Autocompletion
       },
     }
   end,
+
+  keys = {
+    {
+      '<tab>',
+      function()
+        return require('luasnip').jumpable(1) and '<Plug>luasnip-jump-next'
+          or '<tab>'
+      end,
+      expr = true,
+      silent = true,
+      mode = 'i',
+    },
+    {
+      '<tab>',
+      function()
+        require('luasnip').jump(1)
+      end,
+      mode = 's',
+    },
+    {
+      '<s-tab>',
+      function()
+        require('luasnip').jump(-1)
+      end,
+      mode = { 'i', 's' },
+    },
+  },
 }
