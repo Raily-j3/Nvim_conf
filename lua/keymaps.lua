@@ -30,8 +30,8 @@ map({ 'n', 'v' }, 'H', '_', { desc = '' })
 map({ 'n', 'v' }, 'L', 'g_', { desc = '' })
 map({ 'n', 'v' }, 'J', '5j', { desc = '' })
 map({ 'n', 'v' }, 'K', '5k', { desc = '' })
-map({ 'n', 't' }, '<C-n>', '8<C-e>', { desc = '' })
-map({ 'n', 't' }, '<C-p>', '8<C-y>', { desc = '' })
+map({ 'n' }, '<C-n>', '8<C-e>', { desc = '' })
+map({ 'n' }, '<C-p>', '8<C-y>', { desc = '' })
 
 -- other
 map('t', '<C-h>', '')
