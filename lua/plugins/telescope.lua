@@ -140,5 +140,11 @@ return {
       '<leader>,',
       '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>',
     },
+    {
+      '<leader>sw',
+      function()
+        require('telescope.builtin').grep_string()
+      end,
+    },
   },
 }
