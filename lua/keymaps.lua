@@ -38,7 +38,7 @@ map('t', '<C-h>', '')
 map('t', '<C-l>', 'clear<cr>')
 map({ 'n', 'x' }, '<leader>p', '"0p')
 map({ 'n', 't' }, '<A-d>', '<cmd>Lspsaga term_toggle<cr>')
-map('t', '<esc><esc>', '<cmd>Lspsaga term_toggle<cr>')
+-- map('t', '<esc><esc>', '<cmd>Lspsaga term_toggle<cr>')
 map(
   { 'i', 'n' },
   '<esc>',
