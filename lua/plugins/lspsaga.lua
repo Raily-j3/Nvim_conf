@@ -9,8 +9,8 @@ return {
         code_action = '',
       },
       symbol_in_winbar = {
-        enable = false,
-        folder_level = 5,
+        enable = true,
+        folder_level = 0,
       },
       outline = {
         win_width = 50,
