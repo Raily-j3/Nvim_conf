@@ -41,7 +41,7 @@ map({ 'n' }, '<C-p>', '8<C-y>', { desc = '' })
 map('t', '<C-h>', '')
 map('t', '<C-l>', 'clear<cr>')
 map({ 'n', 'x' }, '<leader>p', '"0p')
-map({ 'n', 't' }, '<leader>t', '<cmd>Lspsaga term_toggle<cr>')
+map({ 'n', 't' }, '<C-q>', '<cmd>Lspsaga term_toggle<cr>')
 -- map('t', '<esc><esc>', '<cmd>Lspsaga term_toggle<cr>')
 map(
   { 'i', 'n' },

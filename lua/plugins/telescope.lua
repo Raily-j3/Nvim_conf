@@ -79,6 +79,10 @@ return {
           -- find_command = { "find", "-type", "f" },
         },
         lsp_document_symbols = {
+          theme = 'dropdown',
+          layout_config = {
+            center = { width = 0.5, height = 0.5 },
+          },
           symbol_width = 0.8,
         },
       },
