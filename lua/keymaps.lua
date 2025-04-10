@@ -16,8 +16,8 @@ map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-map('n', '{', '[{', { desc = '' })
-map('n', '}', ']}', { desc = '' })
+map({'n', 'v'}, '{', '[{', { desc = '' })
+map({'n', 'v'}, '}', ']}', { desc = '' })
 
 -- line move
 map('n', '<C-A-j>', '<cmd>m .+1<cr>', { desc = 'Move down' })
@@ -34,8 +34,8 @@ map({ 'n', 'v' }, 'H', '_', { desc = '' })
 map({ 'n', 'v' }, 'L', 'g_', { desc = '' })
 map({ 'n', 'v' }, 'J', '5j', { desc = '' })
 map({ 'n', 'v' }, 'K', '5k', { desc = '' })
-map({ 'n' }, '<C-n>', '8<C-e>', { desc = '' })
-map({ 'n' }, '<C-p>', '8<C-y>', { desc = '' })
+map({ 'n' }, '<C-d>', '8<C-e>', { desc = '' })
+map({ 'n' }, '<C-u>', '8<C-y>', { desc = '' })
 
 -- other
 map('t', '<C-h>', '')
