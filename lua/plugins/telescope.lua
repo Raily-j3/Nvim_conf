@@ -53,7 +53,7 @@ return {
         find_files = {
           theme = 'dropdown',
           layout_config = {
-            center = { width = 0.5, height = 0.3 },
+            center = { width = 0.8, height = 0.3 },
           },
           previewer = false,
           -- find_command = { "fd", "-H" , "-I"},  -- "-H" search hidden files, "-I" do not respect to gitignore
@@ -72,11 +72,18 @@ return {
         oldfiles = {
           theme = 'dropdown',
           layout_config = {
-            center = { width = 0.5, height = 0.3 },
+            center = { width = 0.8, height = 0.3 },
           },
           previewer = false,
           find_command = { 'fd', '-H', '-I' }, -- "-H" search hidden files, "-I" do not respect to gitignore
           -- find_command = { "find", "-type", "f" },
+        },
+        jumplist = {
+          theme = 'dropdown',
+          layout_config = {
+            center = { width = 0.8, height = 0.3 },
+          },
+          previewer = true,
         },
         lsp_document_symbols = {
           theme = 'dropdown',
@@ -102,6 +109,13 @@ return {
       '<leader>r',
       function()
         require('telescope.builtin').oldfiles()
+      end,
+      desc = 'Recent',
+    },
+    {
+      '<leader>j',
+      function()
+        require('telescope.builtin').jumplist()
       end,
       desc = 'Recent',
     },
