@@ -46,6 +46,7 @@ return {
             ['<C-k>'] = actions.cycle_history_prev,
             ['<C-j>'] = actions.cycle_history_next,
             ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
+            ['<C-h>'] = actions.select_horizontal
           },
         },
       },
@@ -85,6 +86,13 @@ return {
           },
           previewer = true,
         },
+        quickfix = {
+          theme = 'dropdown',
+          layout_config = {
+            center = { width = 0.8, height = 0.3 },
+          },
+          previewer = true,
+        },
         lsp_document_symbols = {
           theme = 'dropdown',
           layout_config = {
@@ -118,6 +126,18 @@ return {
         require('telescope.builtin').jumplist()
       end,
       desc = 'Recent',
+    },
+    {
+      '<leader>m',
+      function()
+        require('telescope.builtin').quickfix()
+      end,
+    },
+    {
+      '<leader>a',
+      function()
+        require('telescope.builtin').diagnostics()
+      end,
     },
     {
       '<leader>n',

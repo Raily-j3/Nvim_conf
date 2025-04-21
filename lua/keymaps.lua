@@ -58,7 +58,7 @@ local diagnostic_goto = function(next, severity)
     go { severity = severity }
   end
 end
-map('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Diagnostics fix' })
+-- map('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Diagnostics fix' })
 map('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
 map('n', ']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
 map('n', '[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })
@@ -67,11 +67,11 @@ map('n', '[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev Error' })
 map('n', ']w', diagnostic_goto(true, 'WARN'), { desc = 'Next Warning' })
 map('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'Prev Warning' })
 
-vim.keymap.set('n', '<C-m>', cmd 'ClangdSwitchSourceHeader')
+-- vim.keymap.set('n', '<C-m>', cmd 'ClangdSwitchSourceHeader')
 vim.keymap.set('n', '<leader>uf', cmd 'FormatEnable')
 vim.keymap.set('n', '<leader>uF', cmd 'FormatDisable')
 
-vim.keymap.set('n', '<A-a>', cmd 'WindowsMaximize')
+vim.keymap.set('n', '<C-f>', cmd 'WindowsMaximize')
 vim.keymap.set('n', '<A-i>', '5<C-w>>')
 vim.keymap.set('n', '<A-u>', '5<C-w><')
 
