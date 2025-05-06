@@ -5,8 +5,6 @@ local function cmd(command)
 end
 
 map('n', '<leader>qq', cmd 'qa', { desc = 'Quit All' })
-
--- file
 map({ 'i', 'x', 'n', 's' }, '<C-s>', cmd 'w', { desc = 'Save file' })
 
 -- window
@@ -35,18 +33,8 @@ map({ 'n', 'v' }, 'K', '5k', { desc = '' })
 map({ 'n' }, '<C-d>', '8<C-e>', { desc = '' })
 map({ 'n' }, '<C-u>', '8<C-y>', { desc = '' })
 
--- other
-map('t', '<C-h>', '')
-map('t', '<C-l>', 'clear<cr>')
 map({ 'n', 'x' }, '<leader>p', '"0p')
-map({ 'n', 't' }, '<C-q>', '<cmd>Lspsaga term_toggle<cr>')
--- map('t', '<esc><esc>', '<cmd>Lspsaga term_toggle<cr>')
-map(
-  { 'i', 'n' },
-  '<esc>',
-  '<cmd>noh<cr><esc>',
-  { desc = 'Escape and Clear hlsearch' }
-)
+map({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>', { desc = 'Escape and Clear hlsearch' })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
@@ -56,22 +44,17 @@ local diagnostic_goto = function(next, severity)
     go { severity = severity }
   end
 end
--- map('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Diagnostics fix' })
+
 map('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
-map('n', ']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
-map('n', '[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })
 map('n', ']e', diagnostic_goto(true, 'ERROR'), { desc = 'Next Error' })
 map('n', '[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev Error' })
 map('n', ']w', diagnostic_goto(true, 'WARN'), { desc = 'Next Warning' })
 map('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'Prev Warning' })
 
--- vim.keymap.set('n', '<C-m>', cmd 'ClangdSwitchSourceHeader')
 vim.keymap.set('n', '<leader>uf', cmd 'FormatEnable')
 vim.keymap.set('n', '<leader>uF', cmd 'FormatDisable')
 
 vim.keymap.set('n', '<C-f>', cmd 'WindowsMaximize')
-vim.keymap.set('n', '<A-i>', '5<C-w>>')
-vim.keymap.set('n', '<A-u>', '5<C-w><')
 
 vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
 vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')

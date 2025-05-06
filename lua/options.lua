@@ -1,24 +1,17 @@
 local opt = vim.opt
 
-opt.number = true -- Print line number
-opt.relativenumber = true -- Relative line numbers
-opt.scrolloff = 4 -- Lines of context
+opt.number = true
+opt.relativenumber = true
+opt.scrolloff = 4
 
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-opt.ignorecase = true -- Ignore case
+opt.ignorecase = true
 opt.smartcase = true
--- Decrease update time
-vim.opt.updatetime = 250
--- Configure how new splits should be opened
+opt.updatetime = 250
 opt.splitright = true
 opt.splitbelow = true
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
 opt.timeoutlen = 300
--- Preview substitutions live, as you type!
--- opt.inccommand = 'split'
 
-opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
+opt.signcolumn = 'yes'
 opt.colorcolumn = '150'
 opt.showmode = false
 opt.undofile = true
