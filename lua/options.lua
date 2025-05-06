@@ -19,6 +19,7 @@ opt.timeoutlen = 300
 -- opt.inccommand = 'split'
 
 opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
+opt.colorcolumn = '150'
 opt.showmode = false
 opt.undofile = true
 
