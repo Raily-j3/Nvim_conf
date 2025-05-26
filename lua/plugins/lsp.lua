@@ -37,6 +37,12 @@ return {
           },
         },
 
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {},
+          },
+        },
+
         pyright = {},
         -- jsonls = {
         --   settings = {

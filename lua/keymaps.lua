@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 local function cmd(command)
-   return table.concat({ '<Cmd>', command, '<CR>' })
+  return table.concat { '<Cmd>', command, '<CR>' }
 end
 
 map('n', '<leader>qq', cmd 'qa', { desc = 'Quit All' })
@@ -10,10 +10,10 @@ map({ 'i', 'x', 'n', 's' }, '<C-s>', cmd 'w', { desc = 'Save file' })
 -- window
 map('n', '<leader>d', '<C-W>c', { desc = 'Delete window', remap = true })
 map('n', '<leader>w', cmd 'bd', { desc = 'Delete Buffer and Window' })
-map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- line move
 map('n', '<C-A-j>', '<cmd>m .+1<cr>', { desc = 'Move down' })
@@ -34,7 +34,12 @@ map({ 'n' }, '<C-d>', '8<C-e>', { desc = '' })
 map({ 'n' }, '<C-u>', '8<C-y>', { desc = '' })
 
 map({ 'n', 'x' }, '<leader>p', '"0p')
-map({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>', { desc = 'Escape and Clear hlsearch' })
+map(
+  { 'i', 'n' },
+  '<esc>',
+  '<cmd>noh<cr><esc>',
+  { desc = 'Escape and Clear hlsearch' }
+)
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
@@ -59,4 +64,3 @@ vim.keymap.set('n', '<C-f>', cmd 'WindowsMaximize')
 vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
 vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
-
