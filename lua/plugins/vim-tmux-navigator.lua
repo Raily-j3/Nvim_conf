@@ -1,5 +1,8 @@
 return {
   'christoomey/vim-tmux-navigator',
+  init = function()
+    vim.g.tmux_navigator_no_mappings = 1 -- 禁用默认快捷键
+  end,
   cmd = {
     'TmuxNavigateLeft',
     'TmuxNavigateDown',
