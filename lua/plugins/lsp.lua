@@ -24,9 +24,7 @@ return {
       }
 
       local capabilities = nil
-      if pcall(require, 'cmp_nvim_lsp') then
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
-      end
+      if pcall(require, 'cmp_nvim_lsp') then capabilities = require('cmp_nvim_lsp').default_capabilities() end
 
       local lspconfig = require 'lspconfig'
 
@@ -119,9 +117,7 @@ return {
       }
 
       for name, config in pairs(servers) do
-        if config == true then
-          config = {}
-        end
+        if config == true then config = {} end
         config = vim.tbl_deep_extend('force', {}, {
           capabilities = capabilities,
         }, config)
@@ -137,9 +133,7 @@ return {
         },
         format_on_save = function(bufnr)
           -- Disable with a global or buffer-local variable
-          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-            return
-          end
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
           return { timeout_ms = 500, lsp_format = 'fallback' }
         end,
       }

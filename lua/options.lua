@@ -21,16 +21,7 @@ opt.tabstop = 4
 opt.softtabstop = 4
 opt.clipboard = 'unnamedplus'
 
-opt.fillchars = {
-  foldopen = '',
-  foldclose = '',
-  fold = ' ',
-  foldsep = ' ',
-  diff = '╱',
-  eob = ' ',
-}
-
 vim.diagnostic.config {
   virtual_text = true,
-  signs = false, -- priority = 5
+  signs = false,
 }
