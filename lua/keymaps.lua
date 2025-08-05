@@ -38,6 +38,7 @@ map('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
 map('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 map('n', '<C-w>=', cmd 'WindowsEqualize')
 map('n', '<leader>h', cmd 'LocalHighlightToggle')
+map('n', '<C-p>', cmd 'ClangdSwitchSourceHeader')
 
 -- Format
 local format_enabled = true
