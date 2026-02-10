@@ -2,9 +2,8 @@ return {
   'kevinhwang91/nvim-hlslens',
   event = 'VeryLazy',
   config = function()
-    require('scrollbar.handlers.search').setup {
-      nearest_only = true,
-    }
+    require('scrollbar.handlers.search').setup {}
+
     local kopts = { noremap = true, silent = true }
 
     vim.api.nvim_set_keymap(
