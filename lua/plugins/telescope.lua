@@ -26,6 +26,18 @@ return {
 
     require('telescope').setup {
       defaults = {
+			vimgrep_arguments = {
+			  -- 除了 `--smart-case`之外，所有都是必需的
+			  "rg",
+			  "--color=never",
+			  "--no-heading",
+			  "--with-filename",
+			  "--line-number",
+			  "--column",
+			  "--smart-case"
+
+			  -- 添加你的选项
+			},
         dynamic_preview_title = true,
         results_title = false,
         sorting_strategy = 'ascending', -- display results top->bottom

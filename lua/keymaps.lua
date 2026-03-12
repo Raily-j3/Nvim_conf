@@ -20,8 +20,8 @@ map('v', '>', '>gv')
 -- Cursor move
 map({ 'n', 'v' }, 'H', '_', { desc = '' })
 map({ 'n', 'v' }, 'L', 'g_', { desc = '' })
-map({ 'n', 'v' }, 'J', '5j', { desc = '' })
-map({ 'n', 'v' }, 'K', '5k', { desc = '' })
+-- map({ 'n', 'v' }, 'J', '5j', { desc = '' })
+-- map({ 'n', 'v' }, 'K', '5k', { desc = '' })
 map({ 'n' }, '<C-d>', '8<C-e>', { desc = '' })
 map({ 'n' }, '<C-u>', '8<C-y>', { desc = '' })
 
@@ -39,6 +39,8 @@ map('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 map('n', '<C-w>=', cmd 'WindowsEqualize')
 map('n', '<leader>h', cmd 'LocalHighlightToggle')
 map('n', '<C-p>', cmd 'ClangdSwitchSourceHeader')
+map('n', '<leader>cc', cmd 'let @+ = expand("%:t")')
+map('n', '<leader>cp', cmd 'let @+ = expand("%:p")')
 
 -- Format
 local format_enabled = true

@@ -19,5 +19,6 @@ return {
       end,
       desc = 'Flash Treesitter',
     },
+	{ "S", false, mode = {"v"} },
   },
 }
