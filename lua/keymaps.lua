@@ -1,5 +1,7 @@
 local map = vim.keymap.set
-local function cmd(command) return table.concat { '<Cmd>', command, '<CR>' } end
+local function cmd(command)
+  return table.concat { '<Cmd>', command, '<CR>' }
+end
 
 map('n', '<leader>qq', cmd 'qa', { desc = 'Quit All' })
 map('n', '<leader>w', cmd 'bd', { desc = 'Delete Buffer and Window' })
@@ -20,8 +22,6 @@ map('v', '>', '>gv')
 -- Cursor move
 map({ 'n', 'v' }, 'H', '_', { desc = '' })
 map({ 'n', 'v' }, 'L', 'g_', { desc = '' })
--- map({ 'n', 'v' }, 'J', '5j', { desc = '' })
--- map({ 'n', 'v' }, 'K', '5k', { desc = '' })
 map({ 'n' }, '<C-d>', '8<C-e>', { desc = '' })
 map({ 'n' }, '<C-u>', '8<C-y>', { desc = '' })
 
@@ -32,12 +32,6 @@ map('n', ']w', function() vim.diagnostic.jump { count = 1, severity = 'WARN' } e
 map('n', '[e', function() vim.diagnostic.jump { count = -1, severity = 'ERROR' } end, { desc = 'Prev Error' })
 map('n', ']e', function() vim.diagnostic.jump { count = 1, severity = 'ERROR' } end, { desc = 'Prev Error' })
 
--- Windows
-map('n', '<C-f>', cmd 'WindowsMaximize')
-map('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
-map('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
-map('n', '<C-w>=', cmd 'WindowsEqualize')
-map('n', '<leader>h', cmd 'LocalHighlightToggle')
 map('n', '<C-p>', cmd 'ClangdSwitchSourceHeader')
 map('n', '<leader>cc', cmd 'let @+ = expand("%:t")')
 map('n', '<leader>cp', cmd 'let @+ = expand("%:p")')
