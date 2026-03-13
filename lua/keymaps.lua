@@ -35,12 +35,3 @@ map('n', ']e', function() vim.diagnostic.jump { count = 1, severity = 'ERROR' } 
 map('n', '<C-p>', cmd 'ClangdSwitchSourceHeader')
 map('n', '<leader>cc', cmd 'let @+ = expand("%:t")')
 map('n', '<leader>cp', cmd 'let @+ = expand("%:p")')
-
--- Format
-local format_enabled = true
-local function toggle_format()
-  format_enabled = not format_enabled
-  vim.cmd(format_enabled and 'FormatEnable' or 'FormatDisable')
-  vim.notify(format_enabled and 'Formatting Enabled' or 'Formatting Disabled', vim.log.levels.INFO)
-end
-vim.keymap.set('n', '<leader>uf', toggle_format, { desc = 'Toggle Format Enable/Disable' })

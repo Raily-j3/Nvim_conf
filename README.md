@@ -1,7 +1,6 @@
 
 ## TODO
 
-修复 vim-visual-multi
 配置 clangd
 
 
@@ -24,6 +23,7 @@ lsp         lsp.lua
 quickfix    listish.lua
 vi'         mini.lua
 lsp ui      lspsaga.lua
+多选        vim-visual-multi
 
 
 ## 查

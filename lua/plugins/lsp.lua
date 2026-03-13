@@ -2,119 +2,84 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      'folke/neodev.nvim',
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-      { 'j-hui/fidget.nvim', opts = {} },
-
-      -- Autoformatting
       'stevearc/conform.nvim',
-
-      -- Schema information
-      'b0o/SchemaStore.nvim',
+      { 'j-hui/fidget.nvim', opts = {} },
     },
     config = function()
-      require('neodev').setup {
-        -- library = {
-        --   plugins = { "nvim-dap-ui" },
-        --   types = true,
-        -- },
-      }
-
-      local capabilities = nil
-      if pcall(require, 'cmp_nvim_lsp') then capabilities = require('cmp_nvim_lsp').default_capabilities() end
-
-      local lspconfig = require 'lspconfig'
-
-      local servers = {
-        lua_ls = {
-          server_capabilities = {
-            semanticTokensProvider = vim.NIL,
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      if pcall(require, 'cmp_nvim_lsp') then
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
+      end
+      -- [lua_ls]
+      vim.lsp.config('lua_ls', {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = {
+              -- Tell the language server which version of Lua you're using
+              -- (most likely LuaJIT in the case of Neovim)
+              version = 'LuaJIT',
+            },
+            diagnostics = {
+              -- Get the language server to recognize the `vim` global
+              globals = {
+                'vim',
+                'require',
+              },
+            },
+            workspace = {
+              -- Make the server aware of Neovim runtime files
+              library = vim.api.nvim_get_runtime_file('', true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+              enable = false,
+            },
           },
         },
+      })
 
-        rust_analyzer = {
-          settings = {
-            ['rust-analyzer'] = {},
-          },
+      -- [C/C++ clangd]
+      vim.lsp.config('clangd', {
+        cmd = {
+          'clangd',
+          '--background-index',
+          '--clang-tidy',
+          '--header-insertion=never',
+          '--offset-encoding=utf-16',
+          '--fallback-style=llvm',
         },
+        capabilities = capabilities,
+        root_markers = { '.git', 'compile_commands.json', 'compile_flags.txt' },
+      })
 
-        pyright = {},
-
-        clangd = {
-          root_dir = function(...)
-            -- using a root .clang-format or .clang-tidy file messes up projects, so remove them
-            return require('lspconfig.util').root_pattern(
-              '.git',
-              'compile_commands.json',
-              'compile_flags.txt',
-              'configure.ac'
-            )(...)
-          end,
-          capabilities = {
-            offsetEncoding = { 'utf-8' },
-          },
-          cmd = {
-            'clangd',
-            '--background-index',
-            '--clang-tidy',
-            '--header-insertion=never',
-            '--completion-style=detailed',
-            '--function-arg-placeholders',
-            '--fallback-style=llvm',
-          },
-          init_options = {
-            usePlaceholders = true,
-            completeUnimported = true,
-            clangdFileStatus = true,
-          },
-          filetypes = { 'c', 'cpp' },
-        },
-      }
-
-      local servers_to_install = vim.tbl_filter(function(key)
-        local t = servers[key]
-        if type(t) == 'table' then
-          return not t.manual_install
-        else
-          return t
-        end
-      end, vim.tbl_keys(servers))
+      vim.lsp.enable 'lua_ls'
+      vim.lsp.enable 'clangd'
+      vim.lsp.enable 'pyright'
 
       require('mason').setup()
-      local ensure_installed = {
-        -- 'stylua',
-        'lua_ls',
-        'clangd',
-        'clang-format',
-      }
-
-      vim.list_extend(ensure_installed, servers_to_install)
       require('mason-tool-installer').setup {
-        ensure_installed = ensure_installed,
+        ensure_installed = {
+          'stylua',
+          'lua_ls',
+          'clangd',
+          'clang-format',
+        },
       }
-
-      for name, config in pairs(servers) do
-        if config == true then config = {} end
-        config = vim.tbl_deep_extend('force', {}, {
-          capabilities = capabilities,
-        }, config)
-
-        -- lspconfig[name].setup(config)
-        vim.lsp.enable(name)
-      end
-
-      -- Autoformatting Setup
 
       require('conform').setup {
         formatters_by_ft = {
           lua = { 'stylua' },
+          c = { 'clang-format' },
+          cpp = { 'clang-format' },
         },
         format_on_save = function(bufnr)
-          -- Disable with a global or buffer-local variable
-          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
           return { timeout_ms = 500, lsp_format = 'fallback' }
         end,
       }
@@ -136,16 +101,18 @@ return {
       end, {
         desc = 'Re-enable autoformat-on-save',
       })
-
-      -- vim.api.nvim_create_autocmd('BufWritePre', {
-      --   callback = function(args)
-      --     require('conform').format {
-      --       bufnr = args.buf,
-      --       lsp_fallback = true,
-      --       quiet = true,
-      --     }
-      --   end,
-      -- })
+      local format_enabled = true
+      local function toggle_format()
+        format_enabled = not format_enabled
+        if format_enabled then
+          vim.cmd 'FormatEnable'
+          vim.notify('Formatting Enabled', vim.log.levels.INFO)
+        else
+          vim.cmd 'FormatDisable'
+          vim.notify('Formatting Disabled', vim.log.levels.WARN) -- 警告色提醒关闭
+        end
+      end
+      vim.keymap.set('n', '<leader>uf', toggle_format, { desc = 'Toggle Format' })
     end,
   },
 }
