@@ -1,8 +1,6 @@
 local opt = vim.opt
 
-opt.background='dark'
 opt.number = true
-opt.relativenumber = true
 opt.scrolloff = 4
 
 opt.ignorecase = true

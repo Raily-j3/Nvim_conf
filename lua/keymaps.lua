@@ -35,3 +35,4 @@ map('n', ']e', function() vim.diagnostic.jump { count = 1, severity = 'ERROR' } 
 map('n', '<C-p>', cmd 'ClangdSwitchSourceHeader')
 map('n', '<leader>cc', cmd 'let @+ = expand("%:t")')
 map('n', '<leader>cp', cmd 'let @+ = expand("%:p")')
+map('n', '<leader>ss', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

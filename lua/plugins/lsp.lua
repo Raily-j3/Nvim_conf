@@ -63,7 +63,7 @@ return {
       require('mason').setup()
       require('mason-tool-installer').setup {
         ensure_installed = {
-          'stylua',
+          -- 'stylua',
           'lua_ls',
           'clangd',
           'clang-format',
@@ -73,8 +73,8 @@ return {
       require('conform').setup {
         formatters_by_ft = {
           lua = { 'stylua' },
-          c = { 'clang-format' },
-          cpp = { 'clang-format' },
+          -- c = { 'clang-format' },
+          -- cpp = { 'clang-format' },
         },
         format_on_save = function(bufnr)
           if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
