@@ -41,7 +41,7 @@ return {
         local opts = { buffer = ev.buf }
         vim.keymap.set('n', 'gd', '<cmd>Lspsaga goto_definition<cr>', opts)
         vim.keymap.set('n', 'gh', '<cmd>Lspsaga hover_doc<CR>', opts)
-        vim.keymap.set('n', 'gr', '<cmd>Lspsaga finder<CR>', opts)
+        -- vim.keymap.set('n', 'gr', '<cmd>Lspsaga finder<CR>', opts)
       end,
     })
   end,
