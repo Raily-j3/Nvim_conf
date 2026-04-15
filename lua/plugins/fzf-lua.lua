@@ -16,6 +16,7 @@ return {
         },
       },
       winopts = {
+        fullscreen = true,
         height = 0.90,
         width = 0.80,
         preview = {
