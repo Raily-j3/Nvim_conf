@@ -30,7 +30,7 @@ return {
     { '<leader><leader>', '<cmd>FzfLua git_files<cr>', desc = 'find files in project directory' },
     { '<leader>fo', '<cmd>FzfLua oldfiles<cr>', desc = '[f]ind [o]ld files' },
     {
-      '<leader>fg',
+      '<leader>fw',
       '<cmd>FzfLua grep<cr>',
       desc = 'fuzzy find by using ripgrep in project directory',
     },
@@ -44,8 +44,8 @@ return {
     { '<leader>m', '<cmd>FzfLua manpages<cr>' },
     { 'gr', '<cmd>FzfLua lsp_references<cr>' },
 
-    { '<leader>fw', '<cmd>FzfLua grep_cword<cr>', desc = '[f]ind current [w]ord' },
-    { '<leader>fW', '<cmd>FzfLua grep_cWORD<cr>', desc = '[f]ind current [W]ORD' },
+    { '<leader>sw', '<cmd>FzfLua grep_cword<cr>', desc = '[f]ind current [w]ord' },
+    { '<leader>sW', '<cmd>FzfLua grep_cWORD<cr>', desc = '[f]ind current [W]ORD' },
     { '<leader>fr', '<cmd>FzfLua resume<cr>', desc = '[f]ind in [r]esumed search' },
     { '<leader>r', '<cmd>FzfLua buffers<cr>', desc = '[f]ind open b[u]ffers' },
     { '<leader>fd', '<cmd>FzfLua diagnostics_document<cr>', desc = '[f]ind [d]iagnostics' },
